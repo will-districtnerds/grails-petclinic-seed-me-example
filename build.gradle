@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:2.1.1'
+        classpath "com.bertramlabs.plugins:seed-me:3.0.6"
     }
 }
 
@@ -26,6 +27,7 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: "org.grails.grails-web"
 apply plugin: "org.grails.grails-gsp"
+apply plugin:"seed-me"
 
 ext {
     grailsVersion = project.grailsVersion
@@ -63,6 +65,8 @@ dependencies {
 
     runtime "org.grails.plugins:asset-pipeline"
     runtime "org.grails.plugins:scaffolding"
+    runtime "com.bertramlabs.plugins:seed-me:3.0.6"
+    runtime 'mysql:mysql-connector-java:5.1.33'
 
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
@@ -76,4 +80,8 @@ dependencies {
 
 task wrapper(type: Wrapper) {
     gradleVersion = gradleWrapperVersion
+}
+
+bootRun {
+    systemProperty 'server.port', '8086'
 }

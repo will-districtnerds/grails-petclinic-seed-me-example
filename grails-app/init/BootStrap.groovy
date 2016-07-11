@@ -6,6 +6,8 @@ import org.grails.samples.Vet
 class BootStrap {
 
 	def init = { servletContext ->
+/*
+		NOTE: this is all done via seed me seed files now. Look in the /src/seed/ folder for more info
 		if (!Speciality.count()) {
 			def radiology = new Speciality(name: 'radiology').save(failOnError: true)
 			def surgery =   new Speciality(name: 'surgery').save(failOnError: true)
@@ -40,5 +42,6 @@ class BootStrap {
 			new Owner(lastName: 'Bubinga', firstName: 'Woody', address: '789 Hard Road', city: 'WI', telephone: '789')
 				.save(failOnError: true)
 		}
+		*/
 	}
 }
